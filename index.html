@@ -1,54 +1,22 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pleasant Styles | Bolingbrook, IL</title>
-    <meta name="description" content="Pleasant Styles in Bolingbrook, IL. Barber + salon services. Call to book: (630) 759-7595." />
+    <meta
+      name="description"
+      content="Pleasant Styles in Bolingbrook, IL. Barber + salon services. Call to book: (630) 759-7595."
+    />
     <meta name="theme-color" content="#0b0f14" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-    <style>
-      html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
-      .grain {
-        background-image:
-          radial-gradient(circle at 15% 10%, rgba(255,255,255,0.09) 0, rgba(255,255,255,0) 35%),
-          radial-gradient(circle at 90% 25%, rgba(255,255,255,0.07) 0, rgba(255,255,255,0) 40%),
-          radial-gradient(circle at 45% 92%, rgba(255,255,255,0.06) 0, rgba(255,255,255,0) 45%);
-      }
-    </style>
-
-    <!-- Local SEO structured data -->
-    <script type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"BeautySalon",
-        "name":"Pleasant Styles",
-        "telephone":"+1-630-759-7595",
-        "address":{
-          "@type":"PostalAddress",
-          "streetAddress":"257 N Schmidt Rd Ste A",
-          "addressLocality":"Bolingbrook",
-          "addressRegion":"IL",
-          "postalCode":"60440",
-          "addressCountry":"US"
-        }
-      }
-    </script>
-  </head>
-
-  <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-    <!-- Theme bootstrap + toggle -->
+    <!-- Theme bootstrap (runs BEFORE page renders) -->
     <script>
-      // Theme: default to system preference, save user choice
       (function () {
         const stored = localStorage.getItem("theme"); // "dark" | "light" | null
-        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
         const shouldUseDark = stored ? stored === "dark" : prefersDark;
 
         if (shouldUseDark) document.documentElement.classList.add("dark");
@@ -63,11 +31,72 @@
       }
     </script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        scroll-behavior: smooth;
+      }
+      .grain {
+        background-image: radial-gradient(
+            circle at 15% 10%,
+            rgba(255, 255, 255, 0.09) 0,
+            rgba(255, 255, 255, 0) 35%
+          ),
+          radial-gradient(
+            circle at 90% 25%,
+            rgba(255, 255, 255, 0.07) 0,
+            rgba(255, 255, 255, 0) 40%
+          ),
+          radial-gradient(
+            circle at 45% 92%,
+            rgba(255, 255, 255, 0.06) 0,
+            rgba(255, 255, 255, 0) 45%
+          );
+      }
+    </style>
+
+    <!-- Local SEO structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Pleasant Styles",
+        "telephone": "+1-630-759-7595",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "257 N Schmidt Rd Ste A",
+          "addressLocality": "Bolingbrook",
+          "addressRegion": "IL",
+          "postalCode": "60440",
+          "addressCountry": "US"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
     <!-- Nav -->
-    <header class="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-zinc-950/80">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <header
+      class="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-zinc-950/80"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+      >
         <a href="#top" class="flex items-center gap-2 font-semibold tracking-tight">
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/10">✂️</span>
+          <span
+            class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/10"
+            >✂️</span
+          >
           <span>Pleasant Styles</span>
         </a>
 
