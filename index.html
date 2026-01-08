@@ -4,209 +4,163 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pleasant Styles | Bolingbrook, IL</title>
-    <meta
-      name="description"
-      content="Pleasant Styles in Bolingbrook, IL. Barber + salon services. Call to book: (630) 759-7595."
-    />
-    <meta name="theme-color" content="#0b0f14" />
-
-    <!-- Theme bootstrap (runs BEFORE page renders) -->
-    <script>
-      (function () {
-        const stored = localStorage.getItem("theme"); // "dark" | "light" | null
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const shouldUseDark = stored ? stored === "dark" : prefersDark;
-
-        if (shouldUseDark) document.documentElement.classList.add("dark");
-        else document.documentElement.classList.remove("dark");
-      })();
-
-      function toggleTheme() {
-        const isDark = document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        const label = document.getElementById("themeLabel");
-        if (label) label.textContent = isDark ? "Dark" : "Light";
-      }
-    </script>
+    <meta name="description" content="Pleasant Styles in Bolingbrook, IL. Barber + salon services. Call to book: (630) 759-7595." />
+    <meta name="theme-color" content="#ffffff" />
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <style>
-      html {
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
-          sans-serif;
-        scroll-behavior: smooth;
-      }
-      .grain {
-        background-image: radial-gradient(
-            circle at 15% 10%,
-            rgba(255, 255, 255, 0.09) 0,
-            rgba(255, 255, 255, 0) 35%
-          ),
-          radial-gradient(
-            circle at 90% 25%,
-            rgba(255, 255, 255, 0.07) 0,
-            rgba(255, 255, 255, 0) 40%
-          ),
-          radial-gradient(
-            circle at 45% 92%,
-            rgba(255, 255, 255, 0.06) 0,
-            rgba(255, 255, 255, 0) 45%
-          );
-      }
+      html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
     </style>
 
-    <!-- Local SEO structured data -->
     <script type="application/ld+json">
       {
-        "@context": "https://schema.org",
-        "@type": "BeautySalon",
-        "name": "Pleasant Styles",
-        "telephone": "+1-630-759-7595",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "257 N Schmidt Rd Ste A",
-          "addressLocality": "Bolingbrook",
-          "addressRegion": "IL",
-          "postalCode": "60440",
-          "addressCountry": "US"
+        "@context":"https://schema.org",
+        "@type":"BeautySalon",
+        "name":"Pleasant Styles",
+        "telephone":"+1-630-759-7595",
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"257 N Schmidt Rd Ste A",
+          "addressLocality":"Bolingbrook",
+          "addressRegion":"IL",
+          "postalCode":"60440",
+          "addressCountry":"US"
         }
       }
     </script>
   </head>
 
-  <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+  <body class="bg-white text-zinc-950 dark:bg-zinc-950 dark:text-zinc-100">
+    <script>
+      let isDarkMode = false;
+      
+      function toggleTheme() {
+        isDarkMode = !isDarkMode;
+        if (isDarkMode) {
+          document.documentElement.classList.add("dark");
+          document.body.classList.add("dark:bg-zinc-950");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.body.classList.remove("dark:bg-zinc-950");
+        }
+        const label = document.getElementById("themeLabel");
+        if (label) label.textContent = isDarkMode ? "Dark" : "Light";
+      }
+      
+      window.addEventListener('DOMContentLoaded', function() {
+        const label = document.getElementById("themeLabel");
+        if (label) label.textContent = "Light";
+      });
+    </script>
+
     <!-- Nav -->
-    <header
-      class="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-zinc-950/80"
-    >
-      <div
-        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
-      >
-        <a href="#top" class="flex items-center gap-2 font-semibold tracking-tight">
-          <span
-            class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/10"
-            >✂️</span
-          >
+    <header class="sticky top-0 z-50 border-b border-zinc-200 bg-white backdrop-blur dark:border-zinc-800 dark:bg-zinc-950">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#top" class="flex items-center gap-2 text-lg font-bold tracking-tight">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900 text-xl dark:bg-white">✂️</span>
           <span>Pleasant Styles</span>
         </a>
 
-        <nav class="hidden items-center gap-6 text-sm text-zinc-600 md:flex dark:text-zinc-300">
-          <a class="hover:text-zinc-950 dark:hover:text-white" href="#services">Services</a>
-          <a class="hover:text-zinc-950 dark:hover:text-white" href="#gallery">Gallery</a>
-          <a class="hover:text-zinc-950 dark:hover:text-white" href="#location">Location</a>
-          <a class="hover:text-zinc-950 dark:hover:text-white" href="#contact">Contact</a>
+        <nav class="hidden items-center gap-8 text-sm font-medium md:flex">
+          <a class="text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white" href="#services">Services</a>
+          <a class="text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white" href="#gallery">Gallery</a>
+          <a class="text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white" href="#location">Location</a>
+          <a class="text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white" href="#contact">Contact</a>
         </nav>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <button
             type="button"
             onclick="toggleTheme()"
-            class="rounded-xl border border-black/10 bg-black/5 px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-black/10
-                   dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
-            aria-label="Toggle theme"
-            title="Toggle light/dark mode"
+            class="rounded-lg border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm font-medium hover:bg-zinc-100
+                   dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
           >
             <span class="inline-flex items-center gap-2">
               <span>🌓</span>
-              <span id="themeLabel" class="hidden sm:inline">Theme</span>
+              <span id="themeLabel" class="hidden sm:inline">Light</span>
             </span>
           </button>
 
           <a
             href="tel:+16307597595"
-            class="hidden rounded-xl border border-black/10 bg-black/5 px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-black/10
-                   dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 md:inline-flex"
+            class="hidden rounded-lg border border-zinc-300 bg-zinc-50 px-4 py-2 text-sm font-medium hover:bg-zinc-100 md:inline-flex
+                   dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
           >
             Call
           </a>
 
           <a
             href="#contact"
-            class="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-800
+            class="rounded-lg bg-zinc-950 px-4 py-2 text-sm font-bold text-white hover:bg-zinc-800
                    dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
           >
-            Book / Text
+            Book Now
           </a>
         </div>
       </div>
     </header>
 
     <!-- Hero -->
-    <main id="top" class="grain">
-      <section class="mx-auto max-w-6xl px-4 pb-12 pt-10 md:pb-16 md:pt-16">
-        <div class="grid items-center gap-10 md:grid-cols-2">
+    <main id="top" class="bg-white dark:bg-zinc-950">
+      <section class="mx-auto max-w-6xl px-4 pb-16 pt-12 md:pb-24 md:pt-20">
+        <div class="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <p
-              class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs text-zinc-700
-                     dark:border-white/10 dark:bg-white/5 dark:text-zinc-300"
-            >
+            <span class="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-zinc-100 px-4 py-1.5 text-xs font-semibold text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
               Bolingbrook, IL • Barber + Beauty
-            </p>
+            </span>
 
-            <h1 class="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            <h1 class="mt-6 text-5xl font-black leading-tight tracking-tight md:text-6xl">
               Clean cuts. Smooth styles.
-              <span class="text-zinc-600 dark:text-zinc-300">Walk in confident.</span>
+              <span class="block text-zinc-600 dark:text-zinc-400">Walk in confident.</span>
             </h1>
 
-            <p class="mt-4 text-zinc-700 dark:text-zinc-300">
-              Pleasant Styles serves the Bolingbrook community with quality barber and salon services.
-              Call or text to book.
+            <p class="mt-6 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+              Pleasant Styles serves the Bolingbrook community with quality barber and salon services. Call or text to book.
             </p>
 
-            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="tel:+16307597595"
-                class="inline-flex items-center justify-center rounded-2xl bg-zinc-900 px-5 py-3 font-semibold text-white hover:bg-zinc-800
+                class="inline-flex items-center justify-center rounded-xl bg-zinc-950 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-zinc-800
                        dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
               >
                 Call (630) 759-7595
               </a>
               <a
                 href="#location"
-                class="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-black/5 px-5 py-3 font-semibold text-zinc-900 hover:bg-black/10
-                       dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                class="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-8 py-4 text-base font-bold text-zinc-950 hover:bg-zinc-50
+                       dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               >
                 Get Directions
               </a>
             </div>
 
-            <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
-              <div class="rounded-2xl border border-black/10 bg-black/5 p-4 dark:border-white/10 dark:bg-white/5">
-                <p class="text-zinc-600 dark:text-zinc-400">Address</p>
-                <p class="mt-1 font-medium">257 N Schmidt Rd Ste A</p>
+            <div class="mt-10 grid grid-cols-2 gap-6">
+              <div class="rounded-xl border-2 border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+                <p class="text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Address</p>
+                <p class="mt-2 font-bold text-zinc-950 dark:text-white">257 N Schmidt Rd Ste A</p>
                 <p class="text-zinc-700 dark:text-zinc-300">Bolingbrook, IL 60440</p>
               </div>
-              <div class="rounded-2xl border border-black/10 bg-black/5 p-4 dark:border-white/10 dark:bg-white/5">
-                <p class="text-zinc-600 dark:text-zinc-400">Booking</p>
-                <p class="mt-1 font-medium">Call or Text</p>
+              <div class="rounded-xl border-2 border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+                <p class="text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Booking</p>
+                <p class="mt-2 font-bold text-zinc-950 dark:text-white">Call or Text</p>
                 <p class="text-zinc-700 dark:text-zinc-300">Walk-ins welcome</p>
               </div>
             </div>
           </div>
 
-          <!-- Photo placeholders -->
-          <div class="rounded-3xl border border-black/10 bg-gradient-to-b from-black/5 to-black/0 p-4 shadow-2xl dark:border-white/10 dark:from-white/10 dark:to-white/5">
-            <div class="rounded-2xl border border-black/10 bg-white/70 p-6 dark:border-white/10 dark:bg-zinc-900">
-              <p class="text-sm text-zinc-700 dark:text-zinc-300">Add photos after your visit:</p>
-              <ul class="mt-3 list-disc pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                <li>Front sign</li>
-                <li>Inside chairs</li>
-                <li>2–3 best cuts (with permission)</li>
-                <li>Team photo (optional)</li>
-              </ul>
-              <div class="mt-6 rounded-2xl border border-dashed border-black/20 bg-black/5 p-8 text-center text-zinc-600 dark:border-white/20 dark:bg-black/30 dark:text-zinc-400">
-                Photo Preview Area
-              </div>
+          <div class="rounded-2xl border-2 border-zinc-200 bg-white p-3 shadow-2xl dark:border-zinc-800 dark:bg-zinc-900">
+            <div class="overflow-hidden rounded-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&q=80" 
+                alt="Modern barber shop interior" 
+                class="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -214,166 +168,172 @@
     </main>
 
     <!-- Services -->
-    <section id="services" class="mx-auto max-w-6xl px-4 py-14">
-      <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Services</h2>
-      <p class="mt-2 text-zinc-700 dark:text-zinc-300">We can fine-tune the menu Friday.</p>
+    <section id="services" class="bg-zinc-50 py-20 dark:bg-zinc-900">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-4xl font-black tracking-tight md:text-5xl">Services</h2>
+        <p class="mt-3 text-lg text-zinc-700 dark:text-zinc-300">Professional cuts and styling</p>
 
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        <div class="rounded-2xl border border-black/10 bg-black/5 p-6 dark:border-white/10 dark:bg-white/5">
-          <h3 class="font-semibold">Haircuts</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Fades, tapers, shape-ups, designs.</p>
-        </div>
-        <div class="rounded-2xl border border-black/10 bg-black/5 p-6 dark:border-white/10 dark:bg-white/5">
-          <h3 class="font-semibold">Beard & Grooming</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Beard trims, line-ups, clean finish.</p>
-        </div>
-        <div class="rounded-2xl border border-black/10 bg-black/5 p-6 dark:border-white/10 dark:bg-white/5">
-          <h3 class="font-semibold">Styling</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Color, braids/weaves (as offered), and more.</p>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <div class="rounded-2xl border-2 border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+            <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-950 text-2xl dark:bg-white">✂️</div>
+            <h3 class="text-xl font-bold">Haircuts</h3>
+            <p class="mt-3 text-zinc-700 dark:text-zinc-300">Fades, tapers, shape-ups, designs.</p>
+          </div>
+          <div class="rounded-2xl border-2 border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+            <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-950 text-2xl dark:bg-white">🪒</div>
+            <h3 class="text-xl font-bold">Beard & Grooming</h3>
+            <p class="mt-3 text-zinc-700 dark:text-zinc-300">Beard trims, line-ups, clean finish.</p>
+          </div>
+          <div class="rounded-2xl border-2 border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+            <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-950 text-2xl dark:bg-white">💇</div>
+            <h3 class="text-xl font-bold">Styling</h3>
+            <p class="mt-3 text-zinc-700 dark:text-zinc-300">Color, braids/weaves, and more.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Gallery -->
-    <section id="gallery" class="mx-auto max-w-6xl px-4 pb-14">
-      <div class="rounded-3xl border border-black/10 bg-black/5 p-8 dark:border-white/10 dark:bg-white/5">
-        <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Gallery</h2>
-        <p class="mt-2 text-zinc-700 dark:text-zinc-300">We’ll replace these with real photos.</p>
+    <section id="gallery" class="bg-white py-20 dark:bg-zinc-950">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-4xl font-black tracking-tight md:text-5xl">Gallery</h2>
+        <p class="mt-3 text-lg text-zinc-700 dark:text-zinc-300">Check out our work</p>
 
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="h-44 rounded-2xl border border-dashed border-black/20 bg-white/60 dark:border-white/20 dark:bg-black/30"></div>
-          <div class="h-44 rounded-2xl border border-dashed border-black/20 bg-white/60 dark:border-white/20 dark:bg-black/30"></div>
-          <div class="h-44 rounded-2xl border border-dashed border-black/20 bg-white/60 dark:border-white/20 dark:bg-black/30"></div>
-          <div class="h-44 rounded-2xl border border-dashed border-black/20 bg-white/60 dark:border-white/20 dark:bg-black/30"></div>
-          <div class="h-44 rounded-2xl border border-dashed border-black/20 bg-white/60 dark:border-white/20 dark:bg-black/30"></div>
-          <div class="h-44 rounded-2xl border border-dashed border-black/20 bg-white/60 dark:border-white/20 dark:bg-black/30"></div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="group relative h-80 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80" alt="Barber cutting hair" class="h-full w-full object-cover transition group-hover:scale-105" />
+          </div>
+          <div class="group relative h-80 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80" alt="Fresh fade haircut" class="h-full w-full object-cover transition group-hover:scale-105" />
+          </div>
+          <div class="group relative h-80 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Clean taper with design" class="h-full w-full object-cover transition group-hover:scale-105" />
+          </div>
+          <div class="group relative h-80 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&q=80" alt="Barber shop interior" class="h-full w-full object-cover transition group-hover:scale-105" />
+          </div>
+          <div class="group relative h-80 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="Sharp lineup" class="h-full w-full object-cover transition group-hover:scale-105" />
+          </div>
+          <div class="group relative h-80 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+            <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=600&q=80" alt="Barber at work" class="h-full w-full object-cover transition group-hover:scale-105" />
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Location -->
-    <section id="location" class="mx-auto max-w-6xl px-4 pb-14">
-      <div class="grid gap-6 md:grid-cols-2">
-        <div class="rounded-3xl border border-black/10 bg-black/5 p-8 dark:border-white/10 dark:bg-white/5">
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Location</h2>
-          <p class="mt-2 text-zinc-700 dark:text-zinc-300">257 N Schmidt Rd Ste A, Bolingbrook, IL 60440</p>
-          <p class="mt-1 text-zinc-700 dark:text-zinc-300">(630) 759-7595</p>
+    <section id="location" class="bg-zinc-50 py-20 dark:bg-zinc-900">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="rounded-2xl border-2 border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
+            <h2 class="text-4xl font-black tracking-tight md:text-5xl">Location</h2>
+            <p class="mt-4 text-lg font-semibold text-zinc-700 dark:text-zinc-300">257 N Schmidt Rd Ste A, Bolingbrook, IL 60440</p>
+            <p class="mt-2 text-lg font-semibold text-zinc-700 dark:text-zinc-300">(630) 759-7595</p>
 
-          <!-- Hours of Operation -->
-          <div class="mt-6 rounded-2xl border border-black/10 bg-white/70 p-5 dark:border-white/10 dark:bg-zinc-950/40">
-            <h3 class="font-semibold">Hours of Operation</h3>
-            <dl class="mt-3 space-y-2 text-sm">
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Monday</dt>
-                <dd class="font-medium">Closed</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Tuesday</dt>
-                <dd class="font-medium">10AM – 6PM</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Wednesday</dt>
-                <dd class="font-medium">10AM – 6:30PM</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Thursday</dt>
-                <dd class="font-medium">9:30AM – 7:30PM</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Friday</dt>
-                <dd class="font-medium">9AM – 7:30PM</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Saturday</dt>
-                <dd class="font-medium">8AM – 6:30PM</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-zinc-600 dark:text-zinc-300">Sunday</dt>
-                <dd class="font-medium">Closed</dd>
-              </div>
-            </dl>
+            <div class="mt-8 rounded-xl border-2 border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h3 class="font-bold">Hours of Operation</h3>
+              <dl class="mt-4 space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Monday</dt>
+                  <dd class="font-bold">Closed</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Tuesday</dt>
+                  <dd class="font-bold">10AM – 6PM</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Wednesday</dt>
+                  <dd class="font-bold">10AM – 6:30PM</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Thursday</dt>
+                  <dd class="font-bold">9:30AM – 7:30PM</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Friday</dt>
+                  <dd class="font-bold">9AM – 7:30PM</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Saturday</dt>
+                  <dd class="font-bold">8AM – 6:30PM</dd>
+                </div>
+                <div class="flex justify-between">
+                  <dt class="font-medium text-zinc-600 dark:text-zinc-400">Sunday</dt>
+                  <dd class="font-bold">Closed</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=257%20N%20Schmidt%20Rd%20Ste%20A%20Bolingbrook%20IL%2060440"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center justify-center rounded-xl bg-zinc-950 px-6 py-3 font-bold text-white hover:bg-zinc-800
+                       dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+              >
+                Open in Maps
+              </a>
+              <a
+                href="tel:+16307597595"
+                class="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-6 py-3 font-bold hover:bg-zinc-50
+                       dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+              >
+                Call Now
+              </a>
+            </div>
           </div>
 
-          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-            <a
-              class="inline-flex items-center justify-center rounded-2xl bg-zinc-900 px-5 py-3 font-semibold text-white hover:bg-zinc-800
-                     dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
-              href="https://www.google.com/maps/search/?api=1&query=257%20N%20Schmidt%20Rd%20Ste%20A%20Bolingbrook%20IL%2060440"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open in Maps
-            </a>
-            <a
-              class="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-black/5 px-5 py-3 font-semibold text-zinc-900 hover:bg-black/10
-                     dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
-              href="tel:+16307597595"
-            >
-              Call Now
-            </a>
+          <div class="overflow-hidden rounded-2xl border-2 border-zinc-200 dark:border-zinc-800">
+            <iframe
+              title="Google Map"
+              class="h-full min-h-[400px] w-full"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=257%20N%20Schmidt%20Rd%20Ste%20A%20Bolingbrook%20IL%2060440&output=embed"
+            ></iframe>
           </div>
-
-          <p class="mt-6 text-sm text-zinc-600 dark:text-zinc-400">
-            Tip: If they use Booksy/Vagaro/Fresha, we can add a 1-tap booking button.
-          </p>
-        </div>
-
-        <div class="overflow-hidden rounded-3xl border border-black/10 bg-black/5 dark:border-white/10 dark:bg-white/5">
-          <iframe
-            title="Google Map"
-            class="h-[360px] w-full"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=257%20N%20Schmidt%20Rd%20Ste%20A%20Bolingbrook%20IL%2060440&output=embed"
-          ></iframe>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="mx-auto max-w-6xl px-4 pb-16">
-      <div class="rounded-3xl border border-black/10 bg-black/5 p-8 dark:border-white/10 dark:bg-white/5">
-        <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Book / Contact</h2>
-        <p class="mt-2 text-zinc-700 dark:text-zinc-300">Call or text to book. We can add online booking later if they use one.</p>
+    <section id="contact" class="bg-white py-20 dark:bg-zinc-950">
+      <div class="mx-auto max-w-4xl px-4 text-center">
+        <h2 class="text-4xl font-black tracking-tight md:text-5xl">Book Your Appointment</h2>
+        <p class="mt-4 text-lg text-zinc-700 dark:text-zinc-300">Call or text to reserve your spot today</p>
 
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <a
             href="tel:+16307597595"
-            class="inline-flex items-center justify-center rounded-2xl bg-zinc-900 px-5 py-3 font-semibold text-white hover:bg-zinc-800
+            class="inline-flex items-center justify-center rounded-xl bg-zinc-950 px-10 py-5 text-lg font-bold text-white shadow-lg hover:bg-zinc-800
                    dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
           >
-            Call (630) 759-7595
+            📞 Call (630) 759-7595
           </a>
           <a
             href="sms:+16307597595"
-            class="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-black/5 px-5 py-3 font-semibold text-zinc-900 hover:bg-black/10
-                   dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+            class="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-10 py-5 text-lg font-bold hover:bg-zinc-50
+                   dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
           >
-            Text Us
+            💬 Text Us
           </a>
         </div>
       </div>
     </section>
 
-    <footer class="border-t border-black/10 bg-white dark:border-white/10 dark:bg-zinc-950">
-      <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-zinc-600 dark:text-zinc-400">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p>© <span id="year"></span> Pleasant Styles. All rights reserved.</p>
-          <p class="text-zinc-500 dark:text-zinc-500">Simple. Fast. Mobile-first.</p>
+    <footer class="border-t-2 border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+      <div class="mx-auto max-w-6xl px-4 py-8">
+        <div class="flex flex-col gap-3 text-center sm:flex-row sm:items-center sm:justify-between">
+          <p class="font-semibold text-zinc-700 dark:text-zinc-300">© <span id="year"></span> Pleasant Styles. All rights reserved.</p>
+          <p class="text-sm text-zinc-500">Professional barbering & salon services in Bolingbrook, IL</p>
         </div>
       </div>
     </footer>
 
     <script>
-      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Set initial theme label text
-      (function () {
-        const label = document.getElementById("themeLabel");
-        if (!label) return;
-        label.textContent = document.documentElement.classList.contains("dark") ? "Dark" : "Light";
-      })();
     </script>
   </body>
 </html>
